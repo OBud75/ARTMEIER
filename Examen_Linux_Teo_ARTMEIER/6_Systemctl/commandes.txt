@@ -1,0 +1,11 @@
+6
+
+sudo systemctl daemon-reload
+
+sudo systemctl start nom_srv
+
+sudo systemctl stop nom_srv
+
+À quoi sert l'option "restart" ? Quelles différences avec "start" ?
+restart arrête puis redémarre le service, tandis que start démarre simplement le service s'il n'est pas déjà en cours d'exécution.
+

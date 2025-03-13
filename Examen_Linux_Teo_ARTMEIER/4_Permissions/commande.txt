@@ -1,0 +1,15 @@
+mkdir shared
+
+echo '#!/usr/bin/bash' | sudo tee shared/owned_by_toto
+
+echo 'echo toto' | sudo tee -a shared/owned_by_toto
+
+sudo chown Toto:Toto shared/owned_by_toto
+
+sudo chmod +x shared/owned_by_toto
+
+Que fait la commande "sudo chmod g+x owned_by_toto" ?
+Elle donne le droit d'exécution au groupe propriétaire du fichier.
+
+Que fait la commande "sudo chown root:root owned_by_toto" ?
+Elle change le propriétaire et le groupe du fichier à root.

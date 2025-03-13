@@ -1,0 +1,29 @@
+8
+
+cat > log_script.sh << 'EOF'
+#!/usr/bin/bash
+echo "$(whoami) - $(date)" >> logs
+EOF
+
+chmod +x log_script.sh
+
+sudo nano /etc/systemd/journald.conf
+
+# SystemMaxUse=200M
+
+sudo systemctl restart systemd-journald
+
+sudo nano /etc/logrotate.d/nginx
+
+/var/log/nginx.log {
+    monthly
+    rotate 12
+    compress
+    create 644 root root
+    missingok
+    notifempty
+}
+
+Dans la pratique, pourquoi créer des règles de rotation de log ?
+Pour éviter que les fichiers de logs ne deviennent trop volumineux, ce qui pourrait remplir l'espace disque et ralentir le système. La rotation permet aussi de faciliter l'archivage et l'analyse des logs.
+

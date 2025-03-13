@@ -1,0 +1,27 @@
+9 
+
+Quelle est la différence entre http et https ?
+HTTP est un protocole non sécurisé, tandis que HTTPS est chiffré avec TLS/SSL pour protéger les données transmises.
+
+
+Donnez le nom de 2 programmes qui permettent de faire des requêtes http.
+curl et wget
+Par convention, à quoi sont réservés les ports 80, 22 et 443 ?
+Port 80 : HTTP
+Port 22 : SSH
+Port 443 : HTTPS
+
+sudo ufw enable
+
+sudo ufw disable
+
+sudo ufw status verbose
+
+À quoi sert le programme Nginx ?
+Nginx est un serveur web, un proxy inverse et un équilibreur de charge.
+
+À quoi correspondent les initiales MVC ? Quel avantage offre cette architecture d'application ?
+MVC signifie Model-View-Controller. Cette architecture sépare les données, l'interface utilisateur et la logique métier, ce qui facilite la maintenance et le développement en équipe.
+
+
+À quoi correspondent les initiales CRUD ?

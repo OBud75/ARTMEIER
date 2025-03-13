@@ -1,0 +1,26 @@
+1. 
+
+mkdir assets
+
+seq 1 10 | xargs -I{} touch "img_{}.png"
+
+echo "Hello, world" > du_texte.txt
+
+n=1; for file in *.png; do mv "$file" "img_${n}.jpeg"; ((n++)); done
+
+mkdir medias
+
+mv *.jpeg medias/
+
+À quoi servent les formats de fichiers (.png, .txt, .jpeg) ?
+.txt est pour du texte brut, .png et .jpeg sont des formats d'image(.png avec compression sans perte, .jpeg avec compression avec perte).
+
+
+echo '#!/usr/bin/bash' > script
+
+echo 'echo "Hello world"' >> script
+
+chmod +x script
+
+À quoi sert la ligne #!/usr/bin/bash ? Quelles différences avec le lancement du script via "bash script" ?
+La ligne #!/usr/bin/bash (shebang) indique au système quel interpréteur utiliser pour exécuter le script. La différence avec "bash script" est que la ligne permet d'exécuter le script directement (./script) sans spécifier l'interpréteur.

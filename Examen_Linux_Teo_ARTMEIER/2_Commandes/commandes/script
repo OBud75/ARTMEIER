@@ -1,0 +1,25 @@
+#!/usr/bin/bash
+
+check_argv() {
+    if [ -n "$1" ]; then
+        return 1
+    else
+        return 0
+    fi
+}
+
+check_argv "$1"
+result=$?
+echo $result
+
+case "$2" in
+    "hello")
+        echo "Vous avez dit hello"
+        ;;
+    "toto")
+        echo "Vous avez dit toto"
+        ;;
+    *)
+        echo "Vous avez dit autre chose"
+        ;;
+esac

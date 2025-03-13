@@ -1,0 +1,50 @@
+2. 
+
+mkdir commandes 
+
+seq 1 100 | sed 's/^/Ligne /' | tee commandes/too_long
+
+head -n 5 commandes/too_long
+
+tail -n 7 commandes/too_long
+
+sort -t ' ' -k 2 -nr commandes/too_long | head -n 3
+
+grep "Ligne 42" commandes/too_long
+
+sed -i 's/Ligne 42/The Ultimate Question of Life, the Universe and Everything/' commandes/too_long
+
+cat > commandes/script << 'EOF'
+#!/usr/bin/bash
+
+check_argv() {
+    if [ -n "$1" ]; then
+        return 1
+    else
+        return 0
+    fi
+}
+
+check_argv "$1"
+result=$?
+echo $result
+
+case "$2" in
+    "hello")
+        echo "Vous avez dit hello"
+        ;;
+    "toto")
+        echo "Vous avez dit toto"
+        ;;
+    *)
+        echo "Vous avez dit autre chose"
+        ;;
+esac
+EOF
+
+chmod +x commandes/script
+
+./script arg hello 
+./script arg 1
+.script arg toto
+./script arg test

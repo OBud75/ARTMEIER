@@ -1,0 +1,57 @@
+5
+
+mkdir environ
+
+cat > environ/set_environ.sh << 'EOF'
+#!/usr/bin/bash
+
+echo "Choisissez l'environnement (dev, prod, test):"
+read choice
+
+case "$choice" in
+    "dev"|"prod"|"test")
+        export ENVIRON="$choice"
+        echo "Variable ENVIRON définie à $ENVIRON"
+        ;;
+    *)
+        echo "Choix invalide. Veuillez choisir dev, prod ou test."
+        ;;
+esac
+EOF
+
+chmod +x environ/set_environ.sh
+
+python3 -m venv pythonvenv
+
+source pythonvenv/bin/activate
+
+pip install flask
+
+pip freeze > requirements.txt
+
+deactivate
+
+À quoi sert cette dernière opération ?
+Le fichier requirements.txt capture les dépendances du projet, permettant de recréer facilement l'environnement sur une autre machine.
+
+À quoi sert cette dernière opération ?
+Le .gitignore indique à Git de ne pas suivre les fichiers et dossiers listés, évitant d'inclure des fichiers inutiles dans le dépôt.
+
+Quels autres fichiers ou dossiers serait-il approprié d'ajouter dans le .gitignore ?
+__pycache__/ (fichiers de cache Python)
+.env (variables d'environnement sensibles)
+.DS_Store (métadonnées macOS)
+*.log (fichiers de logs)
+*.pyc (fichiers Python compilés)
+
+À quoi servent les commandes "apt update", "apt upgrade" ?
+apt update : Met à jour la liste des paquets disponibles
+apt upgrade : Met à jour les paquets installés vers leurs dernières versions
+
+
+Quelles différences entre les commandes "apt autoclean", "apt clean", "apt autoremove" et "apt purge" ?
+
+apt autoclean : Supprime les anciennes versions des paquets dans le cache
+apt clean : Vide complètement le cache des paquets
+apt autoremove : Supprime les paquets installés automatiquement qui ne sont plus nécessaires
+apt purge : Désinstalle un paquet et supprime ses fichiers de configuration

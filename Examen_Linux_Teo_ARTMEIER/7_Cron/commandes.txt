@@ -1,0 +1,11 @@
+7
+
+crontab -l
+
+sudo -u Toto crontab -e
+
+# 30 1 * * 3 /chemin/vers/shared/owned_by_toto
+
+Expliquez brièvement à quoi servent les dossiers cron.weekly, cron.hourly et cron.monthly
+Ces dossiers contiennent des scripts exécutés chaque semaine, heure et mois par le système, sans avoir à configurer manuellement des tâches cron.
+

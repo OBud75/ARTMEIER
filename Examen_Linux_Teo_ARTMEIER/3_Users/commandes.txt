@@ -1,0 +1,30 @@
+3. 
+
+cat /etc/passwd
+
+sudo groupadd Toto
+
+sudo useradd -m -g Toto Toto
+
+groups Toto
+
+sudo groupadd shared
+
+sudo usermod -aG shared $USER
+
+sudo usermod -aG shared Toto
+
+Expliquer brièvement à quoi sert de préfixer une commande par le mot "sudo".
+"sudo" permet d'exécuter une commande avec les privilèges d'un autre utilisateur, souvent root.
+
+
+Tous les utilisateurs peuvent-ils utiliser ce mot clé ?
+
+echo "Toto ALL=(ALL) NOPASSWD: /usr/bin/apt install" | sudo tee -a /etc/sudoers.d/toto
+
+sudo usermod
+ 
+Pourquoi ne pas faire tout avec Root ? 
+Utiliser root pour tout est dangereux car cela donne un accès complet au système sans restrictions. Une erreur peut endommager le système, et c'est aussi un risque de sécurité.
+
+echo 'echo "bienvenue toto"' | sudo tee -a /home/Toto/.bashrc
