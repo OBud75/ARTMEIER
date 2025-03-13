@@ -25,3 +25,6 @@ MVC signifie Model-View-Controller. Cette architecture sépare les données, l'i
 
 
 À quoi correspondent les initiales CRUD ?
+Create Read Update Delete
+
+wget https://www.google.com
