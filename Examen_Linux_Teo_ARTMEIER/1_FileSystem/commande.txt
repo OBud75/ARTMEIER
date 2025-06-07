@@ -3,10 +3,20 @@
 mkdir assets
 
 seq 1 10 | xargs -I{} touch "img_{}.png"
+# La syntaxe :
+# touch img_{1..10}.png
+# est surement un peu plus simple.
 
 echo "Hello, world" > du_texte.txt
 
+
 n=1; for file in *.png; do mv "$file" "img_${n}.jpeg"; ((n++)); done
+
+# On peut simplifier cela on iterant sur les fichiers
+# for file in *.png; do
+    # echo "$file"
+# done
+# La lisibilité prime sur la concision, faire tenir le code sur 1 ligne n'est pas forcément une bonne idée si cela rend moins clair le fait qu'on est en train de boucler.
 
 mkdir medias
 
@@ -15,6 +25,13 @@ mv *.jpeg medias/
 À quoi servent les formats de fichiers (.png, .txt, .jpeg) ?
 .txt est pour du texte brut, .png et .jpeg sont des formats d'image(.png avec compression sans perte, .jpeg avec compression avec perte).
 
+# -> Oui. Sur windows cela permet à l'ordinateur de savoir avec quel programme il peut ouvrir le fichier,
+# mais sur Linux c'est surtout l'en tête du fichier qui sert à cela.
+
+# Par contre dans certains cas cela aide le programme lancé pour lire le fichier
+# Un bon exemple est la manière dont certaines applications graphiques ou multimédias sous Linux se comportent :
+# Si on essaiee d’ouvrir un fichier .jpg avec un éditeur de texte comme nano, il ne prendra pas en compte l’extension et affichera du texte illisible.
+# Par contre, si on le renomme en .txt et qu'on tente de l’ouvrir avec "Eye of GNOME" (visionneuse d'images), il refusera de le charger.
 
 echo '#!/usr/bin/bash' > script
 
@@ -24,3 +41,10 @@ chmod +x script
 
 À quoi sert la ligne #!/usr/bin/bash ? Quelles différences avec le lancement du script via "bash script" ?
 La ligne #!/usr/bin/bash (shebang) indique au système quel interpréteur utiliser pour exécuter le script. La différence avec "bash script" est que la ligne permet d'exécuter le script directement (./script) sans spécifier l'interpréteur.
+
+# Pour aller un peu plus loin : 
+# Avec ./script, le noyau lit la première ligne pour déterminer quel interpréteur lancer et transmet le script en argument.
+# La présence des permissions d'exécution est indispensable car le système vérifie que le fichier est exécutable.
+# En lançant le script avec la commande bash script, vous invoquez directement Bash pour qu’il interprète le contenu du fichier.
+# Dans ce cas, la ligne shebang est ignorée et il n’est pas nécessaire que le fichier possède les droits d’exécution.
+# Bash lit simplement le contenu du fichier grâce aux permissions de lecture.
