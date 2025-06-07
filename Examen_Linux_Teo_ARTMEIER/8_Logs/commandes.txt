@@ -11,6 +11,10 @@ sudo nano /etc/systemd/journald.conf
 
 # SystemMaxUse=200M
 
+# Il est possible de simplifier la manipulation du fichier avec
+# sudo systemctl edit systemd-journald
+
+
 sudo systemctl restart systemd-journald
 
 sudo nano /etc/logrotate.d/nginx
