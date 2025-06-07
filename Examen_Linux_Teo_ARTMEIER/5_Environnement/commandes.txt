@@ -8,6 +8,10 @@ cat > environ/set_environ.sh << 'EOF'
 echo "Choisissez l'environnement (dev, prod, test):"
 read choice
 
+# On peut utiliser le paramètre "p"
+# read -p "Choisissez l'environnement (dev, prod, test): " choice
+# Faites ce qui vous semble le plus lisible.
+
 case "$choice" in
     "dev"|"prod"|"test")
         export ENVIRON="$choice"
@@ -36,6 +40,7 @@ Le fichier requirements.txt capture les dépendances du projet, permettant de re
 
 À quoi sert cette dernière opération ?
 Le .gitignore indique à Git de ne pas suivre les fichiers et dossiers listés, évitant d'inclure des fichiers inutiles dans le dépôt.
+# Fichiers inutiles oui, mais surtout les fichiers sensibles avec les par exemple les clés API etc.
 
 Quels autres fichiers ou dossiers serait-il approprié d'ajouter dans le .gitignore ?
 __pycache__/ (fichiers de cache Python)
