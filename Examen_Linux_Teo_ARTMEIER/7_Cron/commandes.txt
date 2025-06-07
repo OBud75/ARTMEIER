@@ -9,3 +9,7 @@ sudo -u Toto crontab -e
 Expliquez brièvement à quoi servent les dossiers cron.weekly, cron.hourly et cron.monthly
 Ces dossiers contiennent des scripts exécutés chaque semaine, heure et mois par le système, sans avoir à configurer manuellement des tâches cron.
 
+# Il existe quelques spécificités : 
+# Dans la logique, les taches .weekly, hourly, monthly sont le plus souvent effectuées par le système (souvent par root).
+# Alors que les autres sont souvent executées par un utilisateur (postgres, nginx, un humain etc).
+# Dernier détail : sur certaines distributions, les taches liées à un utilisateur sont dans /var
