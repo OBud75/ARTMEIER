@@ -3,6 +3,19 @@
 mkdir commandes 
 
 seq 1 100 | sed 's/^/Ligne /' | tee commandes/too_long
+# Pour simplifier un peu la syntaxe, on peut penser à faire
+# echo Ligne{1..100} > too_long
+# Probleme : cela ne va pas revenir à la ligne mais écrire : "Ligne1 Ligne2 Ligne3 ..."
+# 2 solution : 
+# - Faire une boucle:
+# for i in {1..100}; do
+#     echo "Ligne $i"
+# done > too_long
+
+# - Ajouter des "\n"
+# Problème echo "Ligne{1..100}\n" ne fonctionnera pas, il faut utiliser la fonction pour formatter le texte:
+# -> printf "Ligne %s\n" {1..100} > too_long
+
 
 head -n 5 commandes/too_long
 
