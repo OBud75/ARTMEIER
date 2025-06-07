@@ -16,6 +16,12 @@ n=1; for file in *.png; do mv "$file" "img_${n}.jpeg"; ((n++)); done
 # for file in *.png; do
     # echo "$file"
 # done
+
+# Ici vu qu'on ne change que l'ext
+# for file in *.png; do
+#    mv "$file" "${file%.png}.jpeg"
+# done
+
 # La lisibilité prime sur la concision, faire tenir le code sur 1 ligne n'est pas forcément une bonne idée si cela rend moins clair le fait qu'on est en train de boucler.
 
 mkdir medias
