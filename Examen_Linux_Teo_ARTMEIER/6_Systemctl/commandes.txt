@@ -9,3 +9,6 @@ sudo systemctl stop nom_srv
 À quoi sert l'option "restart" ? Quelles différences avec "start" ?
 restart arrête puis redémarre le service, tandis que start démarre simplement le service s'il n'est pas déjà en cours d'exécution.
 
+# Du coup on utilisera restart surtout dans les cas où on veut simplement prendre en compte des modifications de configuration.
+# A noter que restart de stop pas complètement le process, cela peut avoir une grosse importance, par exemple pour un service
+# de gestion de base de données tel que Postgres, stop + start créera une nouvelle connection à la base et pas restart. 
