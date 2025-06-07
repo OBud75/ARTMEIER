@@ -2,6 +2,11 @@
 
 cat /etc/passwd
 
+# Au lieu d'afficher le contenu du fichier brut, on préferera souvent utiliser getent passwd (qui utilise la base de données systeme).
+# On abstrait le fait que les utilisateus sont stockés dans un fichier pour ne pas être tenté de modifier le fichier directement au lieu
+# des programmes comme useradd etc (et donc de faire des erreurs potentielles).
+# Encore une fois cela dépendra toujours du contexte et de ce que vous êtes en train de faire.
+
 sudo groupadd Toto
 
 sudo useradd -m -g Toto Toto
@@ -28,3 +33,6 @@ Pourquoi ne pas faire tout avec Root ?
 Utiliser root pour tout est dangereux car cela donne un accès complet au système sans restrictions. Une erreur peut endommager le système, et c'est aussi un risque de sécurité.
 
 echo 'echo "bienvenue toto"' | sudo tee -a /home/Toto/.bashrc
+
+# Le point important à noter est qu'utiliser sudo élève les droits mais uniquement pour la commande qui suit
+# et surtout cela demandera le mot de passe contrairement à root qui peut tout supprimer sans qu'on ne lui demande aucune vérification
