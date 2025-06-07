@@ -4,6 +4,21 @@ echo '#!/usr/bin/bash' | sudo tee shared/owned_by_toto
 
 echo 'echo toto' | sudo tee -a shared/owned_by_toto
 
+# Pour écrire plusieurs lignes dans un fichier, vous pouvez utiliser <<EOF:
+# sudo tee shared/owned_by_toto <<EOF
+# #!/usr/bin/bash
+# echo toto
+# EOF
+
+# Ou
+# sudo bash -c 'cat > shared/owned_by_toto <<EOF
+# #!/usr/bin/bash
+# echo toto
+# EOF'
+
+# Vous pouvez aussi utiliser "&&" pour executer 2 commandes:
+# sudo bash -c 'echo "#!/usr/bin/bash" > shared/owned_by_toto && echo "echo toto" >> shared/owned_by_toto'
+
 sudo chown Toto:Toto shared/owned_by_toto
 
 sudo chmod +x shared/owned_by_toto
